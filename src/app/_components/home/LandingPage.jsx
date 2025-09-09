@@ -275,7 +275,7 @@ function LandingPage() {
         }}
       />
       {/* Text overlay (same content and styling as Hero) */}
-      <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-start">
+      <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-start ">
         <motion.div
           initial="hidden"
           animate="show"
@@ -294,7 +294,7 @@ function LandingPage() {
               show: { opacity: 1, y: 0 },
             }}
             transition={{ type: "spring", stiffness: 150, damping: 18 }}
-            className="mt-4 text-[100px] w-[60rem] font-bold font-sans leading-[6.3rem] tracking-wide text-gray-100 select-none"
+            className="mt-4 text-[100px] w-[60rem] font-inter font-bold leading-[6.3rem] tracking-wide text-gray-100 select-none"
           >
             Scale Your{" "}
             <span className="font-raffishly text-[150px] text-white drop-shadow-lg drop-shadow-amber-100">
@@ -313,7 +313,7 @@ function LandingPage() {
               damping: 18,
               delay: 0.4,
             }}
-            className="mt-[3.75rem] text-xl w-[33rem] font-bold text-gray-400 ml-2 select-none leading-[1.6rem]"
+            className="mt-[3.75rem] text-xl w-[32rem] font-inter font-bold text-gray-400 ml-2 select-none leading-[1.6rem]"
           >
             At SLIC Media, we craft high-converting ad creatives and growth
             strategies that turn clicks into revenue. From TikTok Ads to

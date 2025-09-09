@@ -1,17 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Edu+VIC+WA+NT+Hand+Pre:wght@400..700&display=swap");
+
 @import "tailwindcss";
 
+/* Root colors */
 :root {
   --background: #0a0a0a;
   --foreground: #ededed;
 }
 
+/* Theme colors */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-theme: #595959;
 }
 
+/* Local font definition */
 @font-face {
   font-family: "Raffishly";
   src: url("/fonts/Raffishly.ttf") format("truetype");
@@ -19,22 +22,38 @@
   font-style: normal;
   font-display: swap;
 }
-@theme {
-  --font-raffishly: "Raffishly", cursive;
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
+/* Tailwind font utilities */
+@theme {
+  --font-raffishly: "Raffishly", cursive;
+  --font-inter: "Inter";
+}
+
+/* HTML adjustments */
 html {
   /* Prevent hash link content from hiding behind the fixed navbar */
   scroll-padding-top: 80px;
 }
 
+/* Body styles */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* Use the variable which already includes fallbacks */
 }
 
-/* Keyframes for MorphingBubblesBackground */
+/* Keyframes animations */
+
+/* Morphing orbit */
 @keyframes orbit {
   0% {
     transform: rotate(0deg) translate(0, 0);
@@ -46,6 +65,8 @@ body {
     transform: rotate(360deg) translate(0, 0);
   }
 }
+
+/* Vertical movement */
 @keyframes moveY {
   0% {
     transform: translateY(-12%);
@@ -57,6 +78,8 @@ body {
     transform: translateY(-12%);
   }
 }
+
+/* Horizontal movement */
 @keyframes moveX {
   0% {
     transform: translateX(-10%);
@@ -69,10 +92,12 @@ body {
   }
 }
 
+/* Glow button animation */
 .glow-button {
   animation: glowPulse 2.2s ease-in-out infinite;
 }
 
+/* Slow spinning animation */
 @keyframes spin-slow {
   from {
     transform: rotate(0deg);
@@ -86,7 +111,7 @@ body {
   animation: spin-slow 10s linear infinite;
 }
 
-
+/* Landing page background */
 .landing {
   background: radial-gradient(circle at center, #1b1b1b, #000000);
   overflow: hidden;
