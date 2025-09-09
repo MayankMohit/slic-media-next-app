@@ -50,7 +50,7 @@ const BrandLogos = () => {
         className="h-full w-full relative overflow-hidden flex items-center justify-center"
         style={{
           background:
-            "radial-gradient(circle at center, #1e1d21 0%, #000000 100%)",
+            "radial-gradient(circle at center, #1e1d21 0%, #000000 100%)",                 // "linear-gradient(#131315, #0a0a0a)"
         }}
       >
         {/* Center "Trusted by" text */}

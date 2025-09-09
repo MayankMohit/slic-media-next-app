@@ -3,6 +3,7 @@
 import ContactSection from "./_components/ContactSection";
 import BrandLogos from "./_components/home/BrandLogos";
 import LandingPage from "./_components/home/LandingPage";
+import ServicesSection from "./_components/home/ServicesSection";
 import NoiseBG from "./_components/NoiseBG";
 
 export default function Home() {
@@ -16,6 +17,10 @@ export default function Home() {
         <BrandLogos />
       </section>
 
+      
+
+        <ServicesSection />
+        <section className="h-screen flex justify-center items-center text-3xl font-bold uppercase">Case Studies Section</section>
       <ContactSection />
     </>
   );
