@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { createNoise2D } from "simplex-noise";
 
 function LandingPage() {
@@ -37,14 +38,14 @@ function LandingPage() {
         y: Math.random() * height,
         size: 100 + Math.random() * 200,
         // base speed for noise drift
-        speed: 0.0007 + Math.random() * 0.0013,
+        speed: Math.random() * 0.002,
         noiseX: Math.random() * 1000,
         noiseY: Math.random() * 1000,
         colorVar: `--c${(i % 5) + 2}`,
-        opacity: 0.05 + Math.random() * 0.35,
+        opacity: 0.45 + Math.random() * 0.35,
         pulse: 0.008 + Math.random() * 0.004,
         follower: isFollower,
-        ease: isFollower ? 0.0005 + Math.random() * 0.0005 : 0,
+        ease: isFollower ? 0.002 + Math.random() * 0.0005 : 0,
       };
     });
     setBlobs(initialBlobs);
@@ -92,8 +93,8 @@ function LandingPage() {
         }
 
         // Tunables
-        const repelRadiusMul = 1.5; // treat effective radius slightly smaller than visual
-        const repelStrength = 0.9; // pixels per frame at 60fps equivalent (scaled with dt below)
+        const repelRadiusMul = 1.3; // treat effective radius slightly smaller than visual
+        const repelStrength = 0.8; // pixels per frame at 60fps equivalent (scaled with dt below)
         const maxRepel = 5; // clamp per-pair correction per frame
 
         // Compute radii once per loop
@@ -275,18 +276,50 @@ function LandingPage() {
       />
       {/* Text overlay (same content and styling as Hero) */}
       <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-start">
-        <div className="ml-[3.75rem] mt-[5.5rem]">
-          <p className="mt-4 text-[100px] w-[60rem] font-bold font-sans leading-[6.3rem] tracking-wide text-gray-200 select-none">
-            Scale Your {" "}
-            <span className="font-['Edu_VIC_WA_NT_Hand_Pre',cursive]  [font-optical-sizing:auto]">Brand </span>
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={{
+            hidden: { opacity: 1 },
+            show: {
+              opacity: 1,
+              transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+            },
+          }}
+          className="ml-[3.75rem] mt-[5.5rem]"
+        >
+          <motion.p
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              show: { opacity: 1, y: 0 },
+            }}
+            transition={{ type: "spring", stiffness: 150, damping: 18 }}
+            className="mt-4 text-[100px] w-[60rem] font-bold font-sans leading-[6.3rem] tracking-wide text-gray-100 select-none"
+          >
+            Scale Your{" "}
+            <span className="font-raffishly text-[150px] text-white drop-shadow-lg drop-shadow-amber-100">
+              Brand{" "}
+            </span>
             with Viral Video Content
-          </p>
-          <p className="mt-[3.75rem] text-xl w-[30rem] font-medium text-gray-500 ml-2 select-none leading-[1.6rem]">
+          </motion.p>
+          <motion.p
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              show: { opacity: 1, y: 0 },
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 120,
+              damping: 18,
+              delay: 0.4,
+            }}
+            className="mt-[3.75rem] text-xl w-[33rem] font-bold text-gray-400 ml-2 select-none leading-[1.6rem]"
+          >
             At SLIC Media, we craft high-converting ad creatives and growth
             strategies that turn clicks into revenue. From TikTok Ads to
             Instagram Reels, we help brands go viral—and stay profitable.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </div>
     </div>
   );

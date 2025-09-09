@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Edu+VIC+WA+NT+Hand+Pre:wght@400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Edu+VIC+WA+NT+Hand+Pre:wght@400..700&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -12,6 +12,16 @@
   --color-theme: #595959;
 }
 
+@font-face {
+  font-family: "Raffishly";
+  src: url("/fonts/Raffishly.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@theme {
+  --font-raffishly: "Raffishly", cursive;
+}
 
 html {
   /* Prevent hash link content from hiding behind the fixed navbar */
@@ -58,6 +68,24 @@ body {
     transform: translateX(-10%);
   }
 }
+
+.glow-button {
+  animation: glowPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+
 
 .landing {
   background: radial-gradient(circle at center, #1b1b1b, #000000);
