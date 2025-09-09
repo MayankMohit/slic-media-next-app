@@ -116,3 +116,5 @@ body {
   background: radial-gradient(circle at center, #1b1b1b, #000000);
   overflow: hidden;
 }
+
+.no-drag { -webkit-user-drag: none; user-drag: none; }

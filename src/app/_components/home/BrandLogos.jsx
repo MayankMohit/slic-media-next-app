@@ -55,11 +55,10 @@ const BrandLogos = () => {
       >
         {/* Center "Trusted by" text */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
-          <h3 className="text-3xl font-inter font-semibold text-white/50 tracking-wide">
-            <span className="text-amber-100/40">trusted</span> by
+          <h3 className="text-3xl font-inter font-semibold text-white/50 tracking-wide select-none">
+            <span className="text-amber-200/40">trusted</span> by
           </h3>
         </div>
-
         {/* Brand logos positioned around the center */}
         {logos.map((logo, index) => {
           const position = logoPositions[index];
@@ -67,7 +66,7 @@ const BrandLogos = () => {
           return (
             <div
               key={logo}
-              className="absolute transition-all duration-300 hover:opacity-60 opacity-30 hover:scale-101 hover:translate-x-0 hover:blur-2xl cursor-pointer z-20"
+              className="absolute transition-all h-auto duration-300 hover:opacity-60 opacity-30 hover:scale-101 hover:translate-x-0 hover:blur-2xl cursor-pointer z-20 no-drag select-none"
               style={{
                 left: `calc(50% + ${position.x}px)`,
                 top: `calc(50% + ${position.y}px)`,
