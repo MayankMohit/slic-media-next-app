@@ -9,7 +9,7 @@ function LandingPage() {
   const interactiveRef = useRef(null);
   const noise = useRef(createNoise2D());
 
-  const blobsCount = 15;
+  const blobsCount = 17;
 
   // Use state to render the blobs initially
   const [blobs, setBlobs] = useState([]);
