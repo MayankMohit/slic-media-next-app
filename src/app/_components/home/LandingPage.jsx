@@ -242,10 +242,9 @@ function LandingPage() {
       <div
         className="absolute inset-0 -z-10"
         style={{
-          background: `linear-gradient(135deg, rgba(var(--bg1)/1) 0%, rgba(var(--bg2)/1) 100%)`,
+          background: `linear-gradient(0deg, rgba(var(--bg1)/1) 0%, rgba(var(--bg2)/1) 100%)`,
         }}
       />
-
       {/* Bokeh blobs */}
       <div
         className="absolute inset-0 z-0 overflow-hidden pointer-events-none"
