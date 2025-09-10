@@ -9,6 +9,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isTab, setIsTab] = useState(false);
+  const [showNav, setShowNav] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,6 +24,38 @@ export default function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    let lastY = window.scrollY || 0;
+    let ticking = false;
+    const threshold = 5;
+
+    const onScroll = () => {
+      const run = () => {
+        const y = window.scrollY || 0;
+        const delta = y - lastY;
+
+        if (y < 8) {
+          setShowNav(true);
+        } else if (delta > threshold) {
+          setShowNav(false);
+        } else if (delta < -threshold) {
+          setShowNav(true);
+        }
+
+        lastY = y;
+        ticking = false;
+      };
+
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(run);
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const navLinks = [
     { name: "Services", href: "/services" },
     { name: "About", href: "/about" },
@@ -33,14 +66,9 @@ export default function Header() {
     <header className="relative z-50">
       <motion.nav
         initial={{ y: -40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{
-          type: "spring",
-          stiffness: 120,
-          damping: 20,
-          delay: 0.15,
-        }}
-        className="fixed left-1/2 top-3 w-[95%] -translate-x-1/2 lg:w-[70%] bg-theme/30 backdrop-blur rounded-lg shadow-md"
+        animate={{ y: !showNav && !isMobileMenuOpen ? -100 : 0, opacity: 1 }}
+        transition={{ type: "tween", duration: 0.28, ease: "easeOut" }}
+        className="fixed left-1/2 top-3 w-[95%] -translate-x-1/2 lg:w-[70%] bg-theme/25 backdrop-blur rounded-lg shadow-md"
       >
         <div className="w-full px-4 py-2 md:px-5">
           <div className="flex w-full items-center justify-between">

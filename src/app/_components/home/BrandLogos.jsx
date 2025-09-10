@@ -66,13 +66,14 @@ const BrandLogos = () => {
           return (
             <div
               key={logo}
-              className="absolute transition-all h-auto duration-300 hover:opacity-60 opacity-30 hover:scale-101 hover:translate-x-0 hover:blur-2xl cursor-pointer z-20 no-drag select-none"
+              className="absolute transition-all h-auto duration-300 hover:opacity-70 opacity-30 hover:scale-101 hover:translate-x-0 hover:blur-2xl cursor-pointer z-20 no-drag select-none"
               style={{
                 left: `calc(50% + ${position.x}px)`,
                 top: `calc(50% + ${position.y}px)`,
                 transform: "translate(-50%, -50%)",
                 filter: "brightness(0) invert(1)", // Make logos white
-              }}
+                  }}
+                  draggable="false"
             >
               <Image
                 src={`/brandLogos/${logo}`}

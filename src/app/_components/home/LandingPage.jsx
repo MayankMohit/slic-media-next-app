@@ -294,7 +294,7 @@ function LandingPage() {
               show: { opacity: 1, y: 0 },
             }}
             transition={{ type: "spring", stiffness: 150, damping: 18 }}
-            className="mt-4 text-[100px] w-[60rem] font-inter font-bold leading-[6.3rem] tracking-wide text-gray-100 select-none"
+            className="mt-4 text-[100px] w-[60rem] font-inter font-bold leading-[6.3rem] tracking-normal text-gray-100 select-none"
           >
             Scale Your{" "}
             <span className="font-raffishly text-[150px] text-white drop-shadow-lg drop-shadow-amber-100">

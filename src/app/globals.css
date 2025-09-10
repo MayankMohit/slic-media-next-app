@@ -118,3 +118,13 @@ body {
 }
 
 .no-drag { -webkit-user-drag: none; user-drag: none; }
+
+.cg-card{
+  perspective: 1000;
+}
+.cg-card-title{
+  color: black;
+}
+.cg-card-desc{
+  color: black;
+} 
