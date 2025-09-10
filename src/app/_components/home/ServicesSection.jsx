@@ -40,6 +40,8 @@ export default function ServicesSection() {
       const desc = card.querySelector(".cg-card-desc p");
       if (!title || !desc) return;
       const chars = splitMap.get(title);
+      gsap.killTweensOf(chars);
+      gsap.killTweensOf(desc);
       gsap.to(chars, {
         xPercent: 0,
         opacity: 1,
@@ -61,6 +63,8 @@ export default function ServicesSection() {
       const desc = card.querySelector(".cg-card-desc p");
       if (!title || !desc) return;
       const chars = splitMap.get(title);
+      gsap.killTweensOf(chars);
+      gsap.killTweensOf(desc);
       gsap.to(chars, {
         xPercent: 20,
         opacity: 0,
@@ -224,7 +228,7 @@ export default function ServicesSection() {
       <section className="relative flex flex-col gap-[5vh] perspective-1000">
         {/* Card 1 */}
         <article className="cg-card h-screen relative px-6 md:px-10">
-          <div className="cg-card-marquee pointer-events-none absolute inset-0 flex items-start mt-20 justify-center overflow-hidden opacity-100">
+          <div className="cg-card-marquee pointer-events-none absolute inset-0 flex items-start mt-15 justify-center overflow-hidden opacity-100">
             <div className="flex gap-16 text-[12vw] font-extrabold opacity-20 whitespace-nowrap will-change-transform animate-[cg-marquee_18s_linear_infinite]">
               <span>Creative that converts</span>
               <span>Creative that converts</span>

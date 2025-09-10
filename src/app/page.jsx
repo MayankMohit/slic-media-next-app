@@ -13,7 +13,7 @@ export default function Home() {
         <LandingPage />
       </section>
 
-      <section className="h-[75vh] flex justify-center items-center text-4xl relative w-full">
+      <section className="h-[85vh] flex justify-center items-center text-4xl relative w-full">
         <BrandLogos />
       </section>
 

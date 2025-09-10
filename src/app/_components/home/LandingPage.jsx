@@ -37,7 +37,6 @@ function LandingPage() {
         x: Math.random() * width,
         y: Math.random() * height,
         size: 100 + Math.random() * 200,
-        // base speed for noise drift
         speed: Math.random() * 0.002,
         noiseX: Math.random() * 1000,
         noiseY: Math.random() * 1000,
@@ -46,8 +45,12 @@ function LandingPage() {
         pulse: 0.008 + Math.random() * 0.004,
         follower: isFollower,
         ease: isFollower ? 0.002 + Math.random() * 0.0005 : 0,
+        driftSpeed: isFollower ? 0.0005 + Math.random() * 0.001 : 0, // new: drift speed for followers
+        driftNoiseX: Math.random() * 1000, // new: independent drift noise
+        driftNoiseY: Math.random() * 1000, // new: independent drift noise
       };
     });
+
     setBlobs(initialBlobs);
 
     let raf;
@@ -67,18 +70,33 @@ function LandingPage() {
 
       initialBlobs.forEach((blob, i) => {
         if (blob.follower) {
-          // Lerp toward mouse with slower ease
+          // Lerp toward mouse
           blob.x += (mouse.x - blob.x) * blob.ease;
           blob.y += (mouse.y - blob.y) * blob.ease;
+
+          // Add subtle noise-based drift
+          const driftX =
+            noise.current(
+              blob.driftNoiseX + now * blob.driftSpeed,
+              blob.driftNoiseX
+            ) * 0.5;
+          const driftY =
+            noise.current(
+              blob.driftNoiseY + now * blob.driftSpeed,
+              blob.driftNoiseY
+            ) * 0.5;
+          blob.x += driftX;
+          blob.y += driftY;
         } else {
-          // Simplex noise drift
+          // Original noise movement for drifters
           const nX = noise.current(blob.noiseX + now * blob.speed, blob.noiseX);
           const nY = noise.current(blob.noiseY + now * blob.speed, blob.noiseY);
-          blob.x += nX * 0.9; // slightly stronger drift
+          blob.x += nX * 0.9;
           blob.y += nY * 0.9;
         }
 
         // Wrap around edges for drifters, clamp for followers to keep visible
+        // Clamp followers within screen
         if (blob.follower) {
           const half = blob.size / 2;
           if (blob.x < half) blob.x = half;
@@ -86,10 +104,24 @@ function LandingPage() {
           if (blob.x > width - half) blob.x = width - half;
           if (blob.y > height - half) blob.y = height - half;
         } else {
-          if (blob.x < -blob.size) blob.x = width + blob.size;
-          if (blob.x > width + blob.size) blob.x = -blob.size;
-          if (blob.y < -blob.size) blob.y = height + blob.size;
-          if (blob.y > height + blob.size) blob.y = -blob.size;
+          // Bounce drifters at edges
+          const half = blob.size / 2;
+          if (blob.x < half) {
+            blob.x = half;
+            blob.noiseX = Math.random() * 1000;
+          }
+          if (blob.x > width - half) {
+            blob.x = width - half;
+            blob.noiseX = Math.random() * 1000;
+          }
+          if (blob.y < half) {
+            blob.y = half;
+            blob.noiseY = Math.random() * 1000;
+          }
+          if (blob.y > height - half) {
+            blob.y = height - half;
+            blob.noiseY = Math.random() * 1000;
+          }
         }
 
         // Tunables
@@ -293,7 +325,7 @@ function LandingPage() {
               show: { opacity: 1, y: 0 },
             }}
             transition={{ type: "spring", stiffness: 150, damping: 18 }}
-            className="mt-4 text-[100px] w-[60rem] font-inter font-bold leading-[6.3rem] tracking-normal text-gray-100 select-none"
+            className="mt-4 text-[100px] w-[55rem] font-inter font-bold leading-[6.5rem] tracking-[-3px] text-gray-100 select-none"
           >
             Scale Your{" "}
             <span className="font-raffishly text-[150px] text-white drop-shadow-lg drop-shadow-amber-100">
@@ -312,7 +344,7 @@ function LandingPage() {
               damping: 18,
               delay: 0.4,
             }}
-            className="mt-[3.75rem] text-xl w-[32rem] font-inter font-bold text-gray-400 ml-2 select-none leading-[1.6rem]"
+            className="mt-[3.75rem] text-xl w-[30rem] text-gray-400 ml-2 select-none leading-[1.6rem]"
           >
             At SLIC Media, we craft high-converting ad creatives and growth
             strategies that turn clicks into revenue. From TikTok Ads to
