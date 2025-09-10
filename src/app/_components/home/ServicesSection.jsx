@@ -81,7 +81,7 @@ export default function ServicesSection() {
       const desc = first.querySelector(".cg-card-desc p");
       const tEl = first.querySelector(".cg-card-title h1");
 
-      if (imgWrap) gsap.set(imgWrap, { scale: 0.5, borderRadius: "300px" });
+      if (imgWrap) gsap.set(imgWrap, { scale: 0.5, borderRadius: "100px" });
       if (img) gsap.set(img, { scale: 1.6 });
       if (desc) gsap.set(desc, { opacity: 0, y: 12 });
       if (tEl) gsap.set(splitMap.get(tEl), { xPercent: 20, opacity: 0 });
@@ -89,15 +89,16 @@ export default function ServicesSection() {
       let shown = false;
       ScrollTrigger.create({
         trigger: first,
-        start: "top top",
+        start: "top 20%",
         end: "+=250vh",
         scrub: true,
+        
         onUpdate: (st) => {
           const p = st.progress;
           if (imgWrap)
             gsap.to(imgWrap, {
               scale: 0.5 + 0.5 * p,
-              borderRadius: `${300 - 264 * p}px`,
+              borderRadius: `${100 - 64 * p}px`,
               duration: 0.001,
             });
           if (img) gsap.to(img, { scale: 1.6 - 0.6 * p, duration: 0.001 });
@@ -223,7 +224,7 @@ export default function ServicesSection() {
       <section className="relative flex flex-col gap-[5vh] perspective-1000">
         {/* Card 1 */}
         <article className="cg-card h-screen relative px-6 md:px-10">
-          <div className="cg-card-marquee pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden opacity-100">
+          <div className="cg-card-marquee pointer-events-none absolute inset-0 flex items-start mt-20 justify-center overflow-hidden opacity-100">
             <div className="flex gap-16 text-[12vw] font-extrabold opacity-20 whitespace-nowrap will-change-transform animate-[cg-marquee_18s_linear_infinite]">
               <span>Creative that converts</span>
               <span>Creative that converts</span>
