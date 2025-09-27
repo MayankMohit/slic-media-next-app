@@ -248,12 +248,12 @@ export default function ServicesSection() {
             </div>
             <div className="relative z-10 h-full grid">
               <div className="cg-card-title pointer-events-none absolute inset-0 grid place-items-center">
-                <h1 className="text-[clamp(44px,8vw,70px)] font-medium tracking-[-0.02em] leading-[1.02]">
+                <h1 className="text-[clamp(44px,8vw,70px)] font-medium tracking-[-0.02em] leading-[1.02] text-white">
                   Viral Ad Creative Production
                 </h1>
               </div>
               <div className="cg-card-desc self-end pb-10 md:pb-14 grid place-items-center">
-                <p className="w-[min(80vw,500px)] text-center text-lg md:text-xl">
+                <p className="w-[min(80vw,500px)] text-center text-lg md:text-xl text-white">
                   Scroll-stopping ads for TikTok, Meta, Applovin & more—designed
                   to drive sales.
                 </p>
@@ -275,12 +275,12 @@ export default function ServicesSection() {
             </div>
             <div className="relative z-10 h-full grid">
               <div className="cg-card-title pointer-events-none absolute inset-0 grid place-items-center">
-                <h1 className="text-[clamp(44px,8vw,70px)] font-medium tracking-[-0.02em] leading-[1.02]">
+                <h1 className="text-[clamp(44px,8vw,70px)] font-medium tracking-[-0.02em] leading-[1.02] text-white">
                   Social Media Content Strategy
                 </h1>
               </div>
               <div className="cg-card-desc self-end pb-10 md:pb-14 grid place-items-center">
-                <p className="w-[min(80vw,500px)] text-center text-lg md:text-xl ">
+                <p className="w-[min(80vw,500px)] text-center text-lg md:text-xl  text-white">
                   From zero to viral—data-backed growth strategies tailored for
                   Instagram, TikTok & YouTube Shorts.
                 </p>
@@ -302,12 +302,12 @@ export default function ServicesSection() {
             </div>
             <div className="relative z-10 h-full grid ">
               <div className="cg-card-title pointer-events-none absolute inset-0 grid place-items-center">
-                <h1 className="text-[clamp(44px,8vw,70px)] font-medium tracking-[-0.02em] leading-[1.02]">
+                <h1 className="text-[clamp(44px,8vw,70px)] font-medium tracking-[-0.02em] leading-[1.02] text-white">
                   Brand Growth Package
                 </h1>
               </div>
               <div className="cg-card-desc self-end pb-10 md:pb-14 grid place-items-center">
-                <p className="w-[min(80vw,500px)] text-center text-lg md:text-xl">
+                <p className="w-[min(80vw,500px)] text-center text-lg md:text-xl text-white">
                   Content scripting, research & editing—all in one package to
                   scale your brand fast.
                 </p>
