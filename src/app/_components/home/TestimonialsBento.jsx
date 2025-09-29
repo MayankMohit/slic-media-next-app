@@ -106,12 +106,12 @@ const TestimonialsBento = () => {
   };
 
   const cardBaseClasses =
-    "rounded-2xl p-6 md:p-8 flex flex-col justify-between border border-zinc-800 hover:shadow-[0px_0px_10px_rgba(192,192,192,0.5)] transition-shadow";
+    "rounded-2xl p-6 md:px-6 md:py-8 flex flex-col justify-between border border-zinc-800 hover:shadow-[0px_0px_10px_rgba(192,192,192,0.5)] transition-shadow";
 
   return (
     <section
       ref={containerRef}
-      className="relative max-w-7xl mx-auto px-6 md:px-8 py-16 mt-30"
+      className="relative max-w-5xl mx-auto px-6 md:px-8 py-10 mt-30"
       aria-label="testimonials-bento"
       style={{ borderRadius: 32 }}
     >
@@ -156,7 +156,7 @@ const TestimonialsBento = () => {
         {/* --- Results box --- */}
         <div
           ref={(el) => (cardRefs.current[1] = el)}
-          className={`col-span-6 md:col-span-3 bg-gradient-to-tr from-zinc-950 via-zinc-900 to-zinc-950 ${cardBaseClasses} min-h-[300px]`}
+          className={`col-span-6 md:col-span-3 bg-gradient-to-tr from-zinc-950 via-zinc-900 to-zinc-950 ${cardBaseClasses} min-h-[300px] `}
         >
           <div>
             <div className="text-amber-300 text-sm font-medium mb-5">Results</div>

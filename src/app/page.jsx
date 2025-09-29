@@ -1,6 +1,7 @@
 "use client";
 
 import BrandLogos from "./_components/home/BrandLogos";
+import CasesSection from "./_components/home/CasesSection";
 import LandingPage from "./_components/home/LandingPage";
 import ServicesSection from "./_components/home/ServicesSection";
 import TestimonialsBento from "./_components/home/TestimonialsBento";
@@ -29,8 +30,8 @@ export default function Home() {
         <TestimonialsBento />
       </section>
 
-      <section className="h-screen flex justify-center items-center text-3xl font-bold bg-zinc-900/20">
-        CASE STUDIES
+      <section>
+        <CasesSection />
       </section>
 
       <section className="h-screen flex justify-center items-center text-3xl font-bold">
