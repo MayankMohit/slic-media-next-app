@@ -5,6 +5,7 @@ import CasesSection from "./_components/home/CasesSection";
 import LandingPage from "./_components/home/LandingPage";
 import ServicesSection from "./_components/home/ServicesSection";
 import TestimonialsBento from "./_components/home/TestimonialsBento";
+import WorkSection from "./_components/home/WorkSection";
 import NoiseBG from "./_components/NoiseBG";
 
 export default function Home() {
@@ -18,8 +19,8 @@ export default function Home() {
         <BrandLogos />
       </section>
 
-      <section className="h-screen flex justify-center items-center w-full text-3xl font-bold">
-        WORK
+      <section>
+        <WorkSection />
       </section>
 
       <section>

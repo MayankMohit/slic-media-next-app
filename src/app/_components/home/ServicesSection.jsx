@@ -70,10 +70,11 @@ export default function ServicesSection() {
         opacity: 0,
         duration: 0.01,
         ease: "power2.in",
-        stagger: 0.01,
+        stagger: 0.008,
       });
       gsap.to(desc, { opacity: 0, y: 12, duration: 0.01, ease: "power2.in" });
     };
+    
 
     const cards = Array.from(root.querySelectorAll(".cg-card"));
 
@@ -94,7 +95,7 @@ export default function ServicesSection() {
       ScrollTrigger.create({
         trigger: first,
         start: "top 20%",
-        end: "+=250vh",
+        end: "+=180vh",
         scrub: true,
         
         onUpdate: (st) => {
@@ -130,11 +131,15 @@ export default function ServicesSection() {
         trigger: card,
         start: "top top",
         end: isLast
-          ? "+=180vh"
-          : () => (cards[i + 1] ? "bottom top" : "+=100vh"),
+          ? "+=800vh"
+          : () => (cards[i + 1] ? "+=400vh" : "+=100vh"),
         pin: true,
-        pinSpacing: true,
-        scrub: true,
+        pinSpacing: true, 
+        snap: {
+          snapTo: 1,       // always snap to the next
+          duration: 1,
+          ease: "power2.inOut",
+        },
       });
     });
 
@@ -156,7 +161,7 @@ export default function ServicesSection() {
         trigger: cards[i + 1],
         start: "top bottom",
         end: "top top",
-        scrub: true,
+        scrub: 1,
         onUpdate: (st) => {
           const p = st.progress;
           gsap.to(wrap, {
