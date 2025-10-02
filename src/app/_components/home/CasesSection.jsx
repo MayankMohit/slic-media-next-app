@@ -85,7 +85,7 @@ const CasesSection = () => {
       <div
         ref={trackRef}
         className="flex h-screen items-center"
-        style={{ width: "max-content", paddingLeft: "18vw", paddingRight: "0vw" }}
+        style={{ width: "max-content", paddingLeft: "18vw", paddingRight: "16vw" }}
       >
         {cardData.map((card, i) => (
           <div

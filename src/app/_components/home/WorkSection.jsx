@@ -118,7 +118,7 @@ export default function WorkSection() {
         {/* paragraph that appears after the merge */}
         <p
           ref={paraRef}
-          className="-mt-80 mb-30 w-[50vw] text-center text-lg md:text-xl text-zinc-300 opacity-0"
+          className="-mt-80 mb-35 w-[50vw] text-center text-lg md:text-xl text-zinc-300 opacity-0"
         >
           I craft high-performance video & ad content, building scroll-driven
           interactions and thumb-stopping creative that converts — from concept,
