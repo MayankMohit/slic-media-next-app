@@ -23,25 +23,18 @@ export default function Home() {
         <WorkSection />
       </section>
 
-      <section>
+      <section className="-mt-140">
         <ServicesSection />
-      </section>
-      
-      <section className="flex justify-center items-center w-full">
-        <TestimonialsBento />
       </section>
 
       <section>
         <CasesSection />
       </section>
 
-      <section className="h-screen flex justify-center items-center text-3xl font-bold">
-        ABOUT US
+      <section className="flex justify-center items-center w-full">
+        <TestimonialsBento />
       </section>
 
-      <section className="h-[50vh] flex justify-center items-center text-3xl font-bold">
-        BLOGS
-      </section>
     </>
   );
 }
