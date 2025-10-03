@@ -135,11 +135,7 @@ export default function ServicesSection() {
           : () => (cards[i + 1] ? "+=400vh" : "+=100vh"),
         pin: true,
         pinSpacing: true, 
-        snap: {
-          snapTo: 1,       // always snap to the next
-          duration: 1,
-          ease: "power2.inOut",
-        },
+        
       });
     });
 
