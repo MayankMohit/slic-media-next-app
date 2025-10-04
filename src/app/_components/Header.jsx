@@ -11,6 +11,7 @@ export default function Header() {
   const [isTab, setIsTab] = useState(false);
   const [showNav, setShowNav] = useState(true);
 
+
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
@@ -111,22 +112,22 @@ export default function Header() {
                       transparent 0%,
                       #727272 100%
                     )`,
-                    width: "60%", // Base width of the triangle
-                    height: "210%", // Height of the triangle
+                    width: "60%",
+                    height: "210%",
                     left: "20%",
                     top: "10%",
                     transformOrigin: "60% 20%",
-                    clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)", // Triangle shape
+                    clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
                     filter:
                       "drop-shadow(0 0 6px rgba(255,255,255,0.55)) drop-shadow(0 0 18px rgba(255,255,255,0.35)) drop-shadow(0 0 36px rgba(220,220,220,0.25))",
                   }}
                 />
-                <Link
-                  href="/contact"
+                <button
+                  
                   className="relative block rounded-lg border border-foreground/10 bg-zinc-800 px-4 py-2 text-sm font-semibold text-white hover:bg-zinc-900 transition-colors backdrop-blur-3xl"
                 >
                   Book a Meet
-                </Link>
+                </button>
               </div>
             )}
 
@@ -175,37 +176,20 @@ export default function Header() {
                   </Link>
                 ))}
                 <div className="relative group w-full rounded-lg overflow-hidden p-[1px]">
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 -z-10 animate-spin-slow"
-                    style={{
-                      background: `conic-gradient(
-                        from 0deg,
-                        rgba(168,85,247,0.4),
-                        rgba(59,130,246,0.4),
-                        rgba(34,197,94,0.4),
-                        rgba(59,130,246,0.4),
-                        transparent 80deg
-                      )`,
-                      width: "150%",
-                      height: "150%",
-                      left: "-25%",
-                      top: "-25%",
-                    }}
-                  />
-                  <Link
-                    href="/contact"
+                  <button
+                    
                     className="relative block w-full rounded-lg border border-foreground/20 bg-theme/80 px-6 py-3 text-center text-sm font-semibold text-foreground hover:bg-theme/95 transition-colors backdrop-blur"
-                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Get Started
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
           )}
         </div>
       </motion.nav>
+
+
     </header>
   );
 }

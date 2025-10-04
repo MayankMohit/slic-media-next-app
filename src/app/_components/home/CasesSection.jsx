@@ -90,7 +90,7 @@ const CasesSection = () => {
         {cardData.map((card, i) => (
           <div
             key={i}
-            className="h-card flex-shrink-0 w-[63vw] h-[60vh] mr-8 rounded-3xl bg-gradient-to-bl from-zinc-950 via-zinc-900 to-zinc-950 border border-zinc-800/50 p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden"
+            className="h-card flex-shrink-0 w-[63vw] h-[60vh] mr-8 rounded-3xl bg-gradient-to-bl from-zinc-950 via-zinc-900 to-zinc-950 border border-zinc-800/50 p-8 flex flex-col justify-between shadow-2xl shadow-[#0a0a0a] relative overflow-hidden"
           >
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-amber-500/20 to-transparent rounded-full blur-2xl"></div>

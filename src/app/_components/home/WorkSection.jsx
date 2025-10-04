@@ -37,12 +37,10 @@ export default function WorkSection() {
     const animateRegion = para.querySelector(".color-animate");
     if (animateRegion) {
       const text = animateRegion.textContent;
-animateRegion.innerHTML = text
-  .split("")
-  .map((char) =>
-     `<span class="letter">${char}</span>`
-  )
-  .join("");
+      animateRegion.innerHTML = text
+        .split("")
+        .map((char) => `<span class="letter">${char}</span>`)
+        .join("");
     }
 
     // clean existing triggers if hot-reloading in dev
@@ -53,7 +51,7 @@ animateRegion.innerHTML = text
     gsap.set(b, { x: "-60vw", opacity: 0, y: 200, scale: 2.5 });
     gsap.set(c, { x: "60vw", opacity: 0, y: 0, scale: 2.5 });
     gsap.set(para, { x: -300, opacity: 0, y: -100 });
-    gsap.set(res, { y: 1000 });
+    gsap.set(res, { y: 1200 });
 
     // timeline controlled by scroll (pin the section while animating)
     const tl = gsap.timeline({
@@ -120,7 +118,7 @@ animateRegion.innerHTML = text
       "-=5" // overlap timing
     );
 
-    tl.to(res, { y: 100, duration: 15, ease: "power2.out" }, "+=0");
+    tl.to(res, { y: 140, duration: 15, ease: "power2.out" }, "+=0");
 
     if (animateRegion) {
       const letterEls = animateRegion.querySelectorAll(".letter");
@@ -204,7 +202,7 @@ animateRegion.innerHTML = text
         <p
           ref={paraRef}
           className="mt-10 w-[50vw] text-center 
-                 text-lg md:text-[3.2rem] uppercase tracking-normal 
+                 text-xl md:text-[3.5rem]  tracking-normal 
                  font-black leading-tight text-zinc-300 opacity-0 "
         >
           <span className="color-animate">

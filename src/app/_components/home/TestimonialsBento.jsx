@@ -4,6 +4,7 @@ import Image from "next/image";
 import gsap from "gsap";
 
 const TestimonialsBento = () => {
+
   const testimonials = [
     {
       id: "t1",
@@ -247,14 +248,16 @@ const TestimonialsBento = () => {
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <a
-              href="#contact"
+            <button
+              
               className="px-5 py-3 bg-zinc-900 text-amber-400 font-bold uppercase rounded-lg hover:scale-105 transition"
             >
               Book a Meet
-            </a>
+            </button>
+            
           </div>
         </div>
+        
       </div>
     </section>
   );
