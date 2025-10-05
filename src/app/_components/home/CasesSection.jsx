@@ -90,14 +90,14 @@ const CasesSection = () => {
         {cardData.map((card, i) => (
           <div
             key={i}
-            className="h-card flex-shrink-0 w-[63vw] h-[60vh] mr-8 rounded-3xl bg-gradient-to-bl from-zinc-950 via-zinc-900 to-zinc-950 border border-zinc-800/50 p-8 flex flex-col justify-between shadow-2xl shadow-[#0a0a0a] relative overflow-hidden"
+            className="h-card flex-shrink-0 w-[63vw] h-[60vh] mr-8 rounded-3xl bg-gradient-to-bl from-zinc-950/25 via-zinc-900/25 to-zinc-950/25 border border-zinc-800/50 backdrop-blur-2xl p-8 flex flex-col justify-between shadow-2xl shadow-transparent relative overflow-hidden"
           >
             {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-amber-500/20 to-transparent rounded-full blur-2xl"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#0697a766] to-transparent rounded-full blur-2xl"></div>
 
             {/* Content */}
             <div>
-              <div className="text-amber-400/80 text-sm font-semibold mb-2 uppercase tracking-wider">
+              <div className="text-[#0697a7] text-sm font-semibold mb-2 uppercase tracking-wider">
                 {card.subtitle}
               </div>
               <h3 className="text-white/90 text-2xl font-bold mb-4 leading-tight">
@@ -110,10 +110,10 @@ const CasesSection = () => {
 
             {/* Metric */}
             <div className="mt-8">
-              <div className="text-3xl font-bold text-amber-400/80 mb-2">
+              <div className="text-3xl font-bold text-[#0697a7] mb-2">
                 {card.metric}
               </div>
-              <div className="w-full h-px bg-gradient-to-r from-amber-400/50 to-transparent"></div>
+              <div className="w-full h-px bg-gradient-to-r from-[#0697a7] to-transparent"></div>
             </div>
 
             {/* CTA */}

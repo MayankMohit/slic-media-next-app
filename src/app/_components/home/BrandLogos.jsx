@@ -77,7 +77,7 @@ const BrandLogos = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center relative mt-15 overflow-hidden">
       <h3 className="text-2xl font-inter font-semibold text-white/60 mb-5 select-none">
-        <span className="text-amber-200/70">trusted</span> by
+        <span className="text-cyan-500/80">trusted</span> by
       </h3>
 
       <div

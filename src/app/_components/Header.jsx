@@ -4,13 +4,19 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import CalendlyModal from "./CalendlyModal";
 
-export default function Header() {
+export default function Header({ calendlyUrl }) {
+  const [open, setOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isTab, setIsTab] = useState(false);
   const [showNav, setShowNav] = useState(true);
 
+  const url =
+    calendlyUrl ||
+    process.env.NEXT_PUBLIC_CALENDLY_URL ||
+    "https://calendly.com/yourname";
 
   useEffect(() => {
     const handleResize = () => {
@@ -61,6 +67,7 @@ export default function Header() {
     { name: "Services", href: "/services" },
     { name: "About", href: "/about" },
     { name: "Work", href: "/work" },
+    { name: "Join Us", href: "#" },
   ];
 
   return (
@@ -69,7 +76,7 @@ export default function Header() {
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: !showNav && !isMobileMenuOpen ? -100 : 0, opacity: 1 }}
         transition={{ type: "tween", duration: 0.28, ease: "easeOut" }}
-        className="fixed left-1/2 top-3 w-[95%] -translate-x-1/2 lg:w-[70%] bg-theme/25 backdrop-blur rounded-lg shadow-md"
+        className="fixed left-1/2 top-3 w-[95%] -translate-x-1/2 lg:w-[70%] bg-theme/25 backdrop-blur-sm rounded-lg shadow-md"
       >
         <div className="w-full px-4 py-2 md:px-5">
           <div className="flex w-full items-center justify-between">
@@ -123,7 +130,7 @@ export default function Header() {
                   }}
                 />
                 <button
-                  
+                  onClick={() => setOpen(true)}
                   className="relative block rounded-lg border border-foreground/10 bg-zinc-800 px-4 py-2 text-sm font-semibold text-white hover:bg-zinc-900 transition-colors backdrop-blur-3xl"
                 >
                   Book a Meet
@@ -177,7 +184,7 @@ export default function Header() {
                 ))}
                 <div className="relative group w-full rounded-lg overflow-hidden p-[1px]">
                   <button
-                    
+                    onClick={() => setOpen(true)}
                     className="relative block w-full rounded-lg border border-foreground/20 bg-theme/80 px-6 py-3 text-center text-sm font-semibold text-foreground hover:bg-theme/95 transition-colors backdrop-blur"
                   >
                     Get Started
@@ -188,8 +195,8 @@ export default function Header() {
           )}
         </div>
       </motion.nav>
-
-
+      {/* Calendly Modal */}
+      <CalendlyModal url={url} open={open} onClose={() => setOpen(false)} />
     </header>
   );
 }

@@ -17,7 +17,7 @@ export default function WorkSection() {
   const resultsRef = useRef();
 
   const cardBaseClasses =
-    "rounded-2xl p-6 md:px-6 md:py-8 flex flex-col justify-between border border-zinc-800 hover:shadow-[0px_0px_10px_rgba(192,192,192,0.5)] transition-shadow";
+    "rounded-2xl p-6 md:px-6 md:pt-4 md:pb-6 flex flex-col justify-between border border-zinc-900 hover:shadow-[0px_0px_10px_rgba(192,192,192,0.3)] transition-shadow";
 
   const stats = [
     { id: "s1", label: "Followers in 90 days", value: 150000, suffix: "" },
@@ -50,7 +50,7 @@ export default function WorkSection() {
     gsap.set(a, { x: "-60vw", opacity: 0, y: -200, scale: 2.5 });
     gsap.set(b, { x: "-60vw", opacity: 0, y: 200, scale: 2.5 });
     gsap.set(c, { x: "60vw", opacity: 0, y: 0, scale: 2.5 });
-    gsap.set(para, { x: -300, opacity: 0, y: -100 });
+    gsap.set(para, { x: -320, opacity: 0, y: -100 });
     gsap.set(res, { y: 1200 });
 
     // timeline controlled by scroll (pin the section while animating)
@@ -94,8 +94,8 @@ export default function WorkSection() {
     tl.to(
       [a, b, c],
       {
-        color: "orange",
-        x: -300,
+        color: "#0697a7",
+        x: -320,
         scale: 0.26,
         y: -270,
         duration: 10,
@@ -109,7 +109,7 @@ export default function WorkSection() {
     tl.to(
       para,
       {
-        x: -300,
+        x: -320,
         y: -450, // slightly lower than -290 of headlines
         opacity: 1,
         duration: 10,
@@ -118,14 +118,14 @@ export default function WorkSection() {
       "-=5" // overlap timing
     );
 
-    tl.to(res, { y: 140, duration: 15, ease: "power2.out" }, "+=0");
+    tl.to(res, { y: 100, duration: 15, ease: "power2.out" }, "+=0");
 
     if (animateRegion) {
       const letterEls = animateRegion.querySelectorAll(".letter");
       tl.to(
         letterEls,
         {
-          color: "#777777", // amber-400, adjust to taste
+          color: "#eeeeee", // amber-400, adjust to taste
           duration: 0.001,
           stagger: 0.04,
         },
@@ -201,42 +201,45 @@ export default function WorkSection() {
         {/* Paragraph directly below, animates with GSAP */}
         <p
           ref={paraRef}
-          className="mt-10 w-[50vw] text-center 
-                 text-xl md:text-[3.5rem]  tracking-normal 
-                 font-black leading-tight text-zinc-300 opacity-0 "
+          className="mt-10 w-full max-w-[50rem] text-center
+             text-xl md:text-[3.5rem]
+             font-black leading-tight text-zinc-400 opacity-0 mx-auto px-6"
         >
           <span className="color-animate">
             We craft high-performance video & ad content, building scroll-driven
             interactions and thumb-stopping creative that converts — from
-            concept, scripting and production to data driven optimization.
+            concept, scripting and production to data-driven optimization.
           </span>
         </p>
       </div>
 
       {/* Results card pinned right */}
-      <div className="absolute top-0 right-15 w-[35vw] bg-transparent">
+      <div className="absolute top-0 right-15 w-[35vw] h-[60vh] bg-transparent">
         <div
           ref={resultsRef}
-          className={`col-span-6 md:col-span-3 bg-gradient-to-tr from-zinc-950 via-zinc-900 to-zinc-950 ${cardBaseClasses} h-[400px]`}
+          className={`bg-gradient-to-tr from-zinc-950/25 via-zinc-900/25 to-zinc-950/25 backdrop-blur-lg ${cardBaseClasses}`}
         >
           <div>
-            <div className="text-amber-300 text-sm font-medium mb-5">
+            <div className="text-[#0697a7] text-4xl text-center font-bold">
               Results
             </div>
-            <h4 className="text-zinc-100 font-bold text-2xl">
+            <h4 className="text-zinc-100 font-medium text-center text-md">
               Proven outcomes
             </h4>
           </div>
-          <div className="flex justify-center items-center gap-4 mt-6">
+          <div className="flex flex-col justify-between items-stretch gap-2 w-full mt-6">
             {stats.map((s) => (
-              <div key={s.id} className="text-center bg-white/3 rounded-lg p-7">
+              <div
+                key={s.id}
+                className="flex-1 text-center bg-white/10 rounded-lg pt-5 pb-2 flex flex-col justify-center items-center"
+              >
                 <div
                   ref={(el) => (statRefs.current[s.id] = el)}
-                  className="text-xl font-bold text-white"
+                  className="text-5xl font-bold text-white"
                 >
                   0
                 </div>
-                <div className="text-xs text-slate-300/60 mt-1">{s.label}</div>
+                <div className="text-md font-medium text-[#0697a7] mt-2">{s.label}</div>
               </div>
             ))}
           </div>
