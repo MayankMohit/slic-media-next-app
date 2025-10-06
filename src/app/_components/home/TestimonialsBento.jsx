@@ -117,7 +117,7 @@ const TestimonialsBento = ({ calendlyUrl }) => {
   };
 
   const cardBaseClasses =
-    "rounded-2xl p-6 md:px-6 md:py-8 flex flex-col justify-between border border-zinc-800 hover:shadow-[0px_0px_10px_rgba(192,192,192,0.5)] transition-shadow";
+    "rounded-2xl p-6 md:px-6 md:py-8 flex flex-col justify-between border border-zinc-800 hover:shadow-[0px_0px_10px_rgba(192,192,192,0.5)] backdrop-blur-md transition-shadow";
 
   return (
     <section
@@ -130,7 +130,7 @@ const TestimonialsBento = ({ calendlyUrl }) => {
         {/* --- Big Testimonial --- */}
         <article
           ref={(el) => (cardRefs.current[0] = el)}
-          className={`col-span-6 md:col-span-3 bg-gradient-to-tr from-zinc-950 via-zinc-900 to-zinc-950 ${cardBaseClasses} min-h-[300px]`}
+          className={`col-span-6 md:col-span-3 bg-gradient-to-tr from-zinc-950/25 via-zinc-900/25 to-zinc-950/25 ${cardBaseClasses} min-h-[300px]`}
         >
           <div>
             <div className="text-[#0697a7] text-sm font-medium mb-5">
@@ -175,7 +175,7 @@ const TestimonialsBento = ({ calendlyUrl }) => {
         {/* --- Results box --- */}
         <div
           ref={(el) => (cardRefs.current[1] = el)}
-          className={`col-span-6 md:col-span-3 bg-gradient-to-tr from-zinc-950 via-zinc-900 to-zinc-950 ${cardBaseClasses} min-h-[300px] `}
+          className={`col-span-6 md:col-span-3 bg-gradient-to-tr from-zinc-950/25 via-zinc-900/25 to-zinc-950/25 ${cardBaseClasses} min-h-[300px] `}
         >
           <div>
             <div className="text-[#0697a7] text-sm font-medium mb-5">
@@ -205,7 +205,7 @@ const TestimonialsBento = ({ calendlyUrl }) => {
           <article
             key={t.id}
             ref={(el) => (cardRefs.current[2 + idx] = el)}
-            className={`col-span-6 sm:col-span-3 md:col-span-2 bg-gradient-to-tr from-zinc-950 to-zinc-900 ${cardBaseClasses} min-h-[300px] relative overflow-hidden`}
+            className={`col-span-6 sm:col-span-3 md:col-span-2 bg-gradient-to-tr from-zinc-950/25 to-zinc-900/25 ${cardBaseClasses} min-h-[300px] relative overflow-hidden`}
             onMouseEnter={() => handleFlip(t.id, true)}
             onMouseLeave={() => handleFlip(t.id, false)}
           >
@@ -289,7 +289,7 @@ const TestimonialsBento = ({ calendlyUrl }) => {
         {/* --- CTA box --- */}
         <div
           ref={(el) => (cardRefs.current[5] = el)}
-          className={`col-span-6 bg-[#09749e] ${cardBaseClasses} min-h-[100px] flex flex-row items-center justify-between max-h-5`}
+          className={`col-span-6 bg-[#09749eee] ${cardBaseClasses} min-h-[100px] flex flex-row items-center justify-between max-h-5`}
         >
           <div>
             <div className="text-zinc-900 font-bold text-lg">

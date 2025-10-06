@@ -1,5 +1,6 @@
 "use client";
 
+import FAQSection from "./_components/FAQs";
 import BrandLogos from "./_components/home/BrandLogos";
 import CasesSection from "./_components/home/CasesSection";
 import LandingPage from "./_components/home/LandingPage";
@@ -35,6 +36,9 @@ export default function Home() {
         <TestimonialsBento />
       </section>
 
+      <section className="flex items-center justify-center">
+        <FAQSection />
+      </section>
     </>
   );
 }
