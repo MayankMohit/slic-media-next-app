@@ -19,7 +19,7 @@ function LandingPage() {
               transition: { staggerChildren: 0.15, delayChildren: 0.2 },
             },
           }}
-          className="ml-[4vw] mt-[10vh]"
+          className="ml-[4vw] mt-[9rem]"
         >
           <motion.p
             variants={{
@@ -46,7 +46,7 @@ function LandingPage() {
               damping: 18,
               delay: 0.4,
             }}
-            className="mt-[8vh] text-[1.5vw] w-[30vw] text-gray-400 ml-2 select-none leading-[30px]"
+            className="mt-[8vh] text-[1.5vw] w-[30vw] text-gray-400 ml-2 select-none leading-[3.8vh]"
           >
             At SLIC Media, we craft high-converting ad creatives and growth
             strategies that turn clicks into revenue. From TikTok Ads to

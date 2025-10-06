@@ -78,7 +78,7 @@ export default function Header({ calendlyUrl }) {
         transition={{ type: "tween", duration: 0.28, ease: "easeOut" }}
         className="fixed left-1/2 top-[0.8vw] w-[95%] -translate-x-1/2 lg:w-[70%] bg-theme/25 backdrop-blur-sm rounded-lg shadow-md"
       >
-        <div className="w-full px-4 py-[1.4vh] md:px-5">
+        <div className="w-full px-4 py-[1vh] md:px-5">
           <div className="flex w-full items-center justify-between">
             <Link href="/" className="group flex items-center">
               <span className="uppercase tracking-tight text-[#06b3c6] font-semibold text-[1.5vw] ml-3">
