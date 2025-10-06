@@ -19,7 +19,7 @@ function LandingPage() {
               transition: { staggerChildren: 0.15, delayChildren: 0.2 },
             },
           }}
-          className="ml-[3.75rem] mt-[5.5rem]"
+          className="ml-[4vw] mt-[10vh]"
         >
           <motion.p
             variants={{
@@ -27,10 +27,10 @@ function LandingPage() {
               show: { opacity: 1, y: 0 },
             }}
             transition={{ type: "spring", stiffness: 150, damping: 18 }}
-            className="mt-4 text-[100px] w-[55rem] font-inter font-bold leading-[6.5rem] tracking-[-3px] text-gray-100 select-none"
+            className="text-[7vw] w-[60vw] font-inter font-bold leading-[6.8vw] tracking-[-3px] text-gray-100 select-none"
           >
             Scale Your{" "}
-            <span className="font-raffishly text-[150px] text-white drop-shadow-lg drop-shadow-amber-100">
+            <span className="font-raffishly text-[10vw] text-white drop-shadow-lg drop-shadow-amber-100">
               Brand{" "}
             </span>
             with Viral Video Content
@@ -46,7 +46,7 @@ function LandingPage() {
               damping: 18,
               delay: 0.4,
             }}
-            className="mt-[3.75rem] text-xl w-[30rem] text-gray-400 ml-2 select-none leading-[1.6rem]"
+            className="mt-[8vh] text-[1.5vw] w-[30vw] text-gray-400 ml-2 select-none leading-[30px]"
           >
             At SLIC Media, we craft high-converting ad creatives and growth
             strategies that turn clicks into revenue. From TikTok Ads to

@@ -76,19 +76,12 @@ export default function Header({ calendlyUrl }) {
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: !showNav && !isMobileMenuOpen ? -100 : 0, opacity: 1 }}
         transition={{ type: "tween", duration: 0.28, ease: "easeOut" }}
-        className="fixed left-1/2 top-3 w-[95%] -translate-x-1/2 lg:w-[70%] bg-theme/25 backdrop-blur-sm rounded-lg shadow-md"
+        className="fixed left-1/2 top-[0.8vw] w-[95%] -translate-x-1/2 lg:w-[70%] bg-theme/25 backdrop-blur-sm rounded-lg shadow-md"
       >
-        <div className="w-full px-4 py-2 md:px-5">
+        <div className="w-full px-4 py-[1.4vh] md:px-5">
           <div className="flex w-full items-center justify-between">
             <Link href="/" className="group flex items-center">
-              <Image
-                src="/myLogos/logo.png"
-                alt="Logo"
-                width={40}
-                height={40}
-                className="h-10 w-10 transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110"
-              />
-              <span className="uppercase tracking-tight text-foreground font-semibold text-xl ml-3">
+              <span className="uppercase tracking-tight text-[#06b3c6] font-semibold text-[1.5vw] ml-3">
                 Slic Media
               </span>
             </Link>
@@ -100,7 +93,7 @@ export default function Header({ calendlyUrl }) {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="font-medium hover:text-primary transition-colors"
+                    className="font-medium hover:text-primary text-[1.1vw] transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -131,7 +124,7 @@ export default function Header({ calendlyUrl }) {
                 />
                 <button
                   onClick={() => setOpen(true)}
-                  className="relative block rounded-lg border border-foreground/10 bg-zinc-800 px-4 py-2 text-sm font-semibold text-white hover:bg-zinc-900 transition-colors backdrop-blur-3xl"
+                  className="relative block rounded-lg border border-foreground/10 bg-zinc-800 px-[1.5vw] py-[1.3vh] text-[1vw] font-semibold text-white hover:bg-zinc-900 transition-colors backdrop-blur-3xl"
                 >
                   Book a Meet
                 </button>
