@@ -230,11 +230,11 @@ export default function ServicesSection() {
         {/* Card 1 */}
         <article className="cg-card h-screen relative px-6 md:px-10">
           <div className="cg-card-marquee pointer-events-none absolute inset-0 flex items-start mt-15 justify-center overflow-hidden opacity-100">
-            <div className="text-[#0697a7] flex gap-16 text-[12vw] font-extrabold opacity-20 whitespace-nowrap will-change-transform animate-[cg-marquee_18s_linear_infinite]">
-              <span>Creative that converts.</span>
-              <span>Creative that converts.</span>
-              <span>Creative that converts.</span>
-              <span>Creative that converts.</span>
+            <div className="text-[#65f0ff] flex gap-16 text-[12vw] font-extrabold opacity-20 whitespace-nowrap will-change-transform animate-[cg-marquee_18s_linear_infinite]">
+              <span>Creative That Converts.</span>
+              <span>Creative That Converts.</span>
+              <span>Creative That Converts.</span>
+              <span>Creative That Converts.</span>
             </div>
           </div>
           <div className="cg-card-wrap absolute inset-10">

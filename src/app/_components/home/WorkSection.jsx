@@ -46,12 +46,20 @@ export default function WorkSection() {
     // clean existing triggers if hot-reloading in dev
     ScrollTrigger.getAll().forEach((t) => t.kill());
 
+    const vw = (val) => (window.innerWidth * val) / 100;
+    const vh = (val) => (window.innerHeight * val) / 100;
+
+    const baseWidth = 400; // original element width in px
+    const targetWidth = vw(62); // 65vw target
+    const scaleFactor = targetWidth / baseWidth;
+    const smallScale = scaleFactor / 8;
+
     // initial states: offscreen and invisible
-    gsap.set(a, { x: "-60vw", opacity: 0, y: -200, scale: 2.5 });
-    gsap.set(b, { x: "-60vw", opacity: 0, y: 200, scale: 2.5 });
-    gsap.set(c, { x: "60vw", opacity: 0, y: 0, scale: 2.5 });
-    gsap.set(para, { x: -320, opacity: 0, y: -100 });
-    gsap.set(res, { y: 1200 });
+    gsap.set(a, { x: "-60vw", opacity: 0, y: -vh(25), scale: scaleFactor });
+    gsap.set(b, { x: "-60vw", opacity: 0, y: vh(25), scale: scaleFactor });
+    gsap.set(c, { x: "60vw", opacity: 0, y: vh(0), scale: scaleFactor });
+    gsap.set(para, { x: -vw(21), opacity: 0, y: -vh(12) });
+    gsap.set(res, { y: vh(150) });
 
     // timeline controlled by scroll (pin the section while animating)
     const tl = gsap.timeline({
@@ -95,9 +103,9 @@ export default function WorkSection() {
       [a, b, c],
       {
         color: "#0697a7",
-        x: -320,
-        scale: 0.26,
-        y: -270,
+        x: -vw(21),
+        scale: smallScale,
+        y: -vw(18),
         duration: 10,
         stagger: 0,
         ease: "power3.out",
@@ -109,8 +117,8 @@ export default function WorkSection() {
     tl.to(
       para,
       {
-        x: -320,
-        y: -450, // slightly lower than -290 of headlines
+        x: -vw(21),
+        y: -vw(30), // slightly lower than -290 of headlines
         opacity: 1,
         duration: 10,
         ease: "power3.out",
@@ -118,7 +126,7 @@ export default function WorkSection() {
       "-=5" // overlap timing
     );
 
-    tl.to(res, { y: 100, duration: 15, ease: "power2.out" }, "+=0");
+    tl.to(res, { y: vh(10), duration: 15, ease: "power2.out" }, "+=0");
 
     if (animateRegion) {
       const letterEls = animateRegion.querySelectorAll(".letter");
@@ -201,8 +209,8 @@ export default function WorkSection() {
         {/* Paragraph directly below, animates with GSAP */}
         <p
           ref={paraRef}
-          className="mt-10 w-full max-w-[50rem] text-center
-             text-xl md:text-[3.5rem]
+          className="mt-10 w-full max-w-[52vw] text-center
+             text-xl md:text-[3.6vw]
              font-black leading-tight text-zinc-400 opacity-0 mx-auto px-6"
         >
           <span className="color-animate">
@@ -214,32 +222,34 @@ export default function WorkSection() {
       </div>
 
       {/* Results card pinned right */}
-      <div className="absolute top-0 right-15 w-[35vw] h-[60vh] bg-transparent">
+      <div className="absolute top-0 right-[5vw] w-[35vw] h-[60vh] bg-transparent">
         <div
           ref={resultsRef}
           className={`bg-gradient-to-tr from-zinc-950/25 via-zinc-900/25 to-zinc-950/25 backdrop-blur-lg ${cardBaseClasses}`}
         >
           <div>
-            <div className="text-[#0697a7] text-4xl text-center font-bold">
+            <div className="text-[#0697a7] text-[2.7vw] text-center font-bold">
               Results
             </div>
-            <h4 className="text-zinc-100 font-medium text-center text-md">
+            <h4 className="text-zinc-100 font-medium text-center text-[1.1vw]">
               Proven outcomes
             </h4>
           </div>
-          <div className="flex flex-col justify-between items-stretch gap-2 w-full mt-6">
+          <div className="flex flex-col justify-between items-stretch gap-[1vw] w-full mt-[1.5vw]">
             {stats.map((s) => (
               <div
                 key={s.id}
-                className="flex-1 text-center bg-white/10 rounded-lg pt-5 pb-2 flex flex-col justify-center items-center"
+                className="flex-1 text-center bg-white/10 rounded-lg pt-[2.1vh] pb-[1.4vh] flex flex-col justify-center items-center"
               >
                 <div
                   ref={(el) => (statRefs.current[s.id] = el)}
-                  className="text-5xl font-bold text-white"
+                  className="text-[2.6vw] font-bold text-white"
                 >
                   0
                 </div>
-                <div className="text-md font-medium text-[#0697a7] mt-2">{s.label}</div>
+                <div className="text-[1vw] font-medium text-[#0697a7] mt-[0.2vh]">
+                  {s.label}
+                </div>
               </div>
             ))}
           </div>
