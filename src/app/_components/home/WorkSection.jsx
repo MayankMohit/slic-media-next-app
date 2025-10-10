@@ -25,6 +25,8 @@ export default function WorkSection() {
     { id: "s3", label: "Avg ROAS increase", value: 5, suffix: "x" },
   ];
 
+  let scaleFactor = 1;
+
   useEffect(() => {
     const root = rootRef.current;
     const a = leftA.current;
@@ -49,10 +51,9 @@ export default function WorkSection() {
     const vw = (val) => (window.innerWidth * val) / 100;
     const vh = (val) => (window.innerHeight * val) / 100;
 
-    const baseWidth = 400; // original element width in px
-    const targetWidth = vw(62); // 65vw target
-    const scaleFactor = targetWidth / baseWidth;
-    const smallScale = scaleFactor / 8;
+    const baseWidth = 400;
+    const targetWidth = vw(62);
+    scaleFactor = targetWidth / baseWidth;
 
     // initial states: offscreen and invisible
     gsap.set(a, { x: "-60vw", opacity: 0, y: -vh(25), scale: scaleFactor });
@@ -104,7 +105,7 @@ export default function WorkSection() {
       {
         color: "#0697a7",
         x: -vw(21),
-        scale: smallScale,
+        scale: scaleFactor/8,
         y: -vw(18),
         duration: 10,
         stagger: 0,
@@ -167,7 +168,7 @@ export default function WorkSection() {
       tl.kill();
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
-  }, []);
+  }, [scaleFactor]);
 
   return (
     <section
@@ -181,7 +182,7 @@ export default function WorkSection() {
           <h1
             ref={leftA}
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
-                   text-[clamp(36px,8vw,96px)] font-extrabold leading-[0.9] tracking-tight 
+                   text-[clamp(36px,8vw,100px)] font-extrabold leading-[0.9] tracking-tight 
                    whitespace-nowrap pointer-events-none select-none"
           >
             What We Do
@@ -190,7 +191,7 @@ export default function WorkSection() {
           <h1
             ref={leftB}
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
-                   text-[clamp(36px,8vw,96px)] font-extrabold leading-[0.9] tracking-tight 
+                   text-[clamp(36px,8vw,100px)] font-extrabold leading-[0.9] tracking-tight 
                    whitespace-nowrap pointer-events-none select-none"
           >
             What We Do
@@ -199,7 +200,7 @@ export default function WorkSection() {
           <h1
             ref={rightC}
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
-                   text-[clamp(36px,8vw,96px)] font-extrabold leading-[0.9] tracking-tight 
+                   text-[clamp(36px,8vw,100px)] font-extrabold leading-[0.9] tracking-tight 
                    whitespace-nowrap pointer-events-none select-none"
           >
             What We Do
