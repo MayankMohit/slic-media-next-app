@@ -1,13 +1,18 @@
-import ContactSection from "../_components/ContactSection";
+import ScrollMaskSection from "../_components/about/ScrollMaskSection";
 
 export default function AboutPage() {
   return (
     <main>
-      <section className="mx-auto max-w-6xl px-4 py-25 h-screen">
-        <h1 className="mb-2 text-2xl font-semibold">About</h1>
-        <p className="opacity-80">Write a short bio and mission statement.</p>
-      </section>
-      <ContactSection />
+      <ScrollMaskSection
+        textLines={[
+          { value: "This is", className: "text-[8vw]" },
+          { value: "SLIC MEDIA", className: "text-[12vw]" },
+        ]}
+      />
+
+      <div className="h-[120vh] text-white flex items-center justify-center">
+        <p className="opacity-70">Content after</p>
+      </div>
     </main>
   );
 }

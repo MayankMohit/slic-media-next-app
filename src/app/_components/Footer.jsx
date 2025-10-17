@@ -13,7 +13,7 @@ export default function Footer({ calendlyUrl }) {
     "https://calendly.com/yourname";
 
   return (
-    <footer className="bg-[#151c269b] text-slate-300 text-sm pt-[5vh] border-t min-h-[50vh] border-white/10 mt-[10vh]">
+    <footer className="bg-[#123343ad] text-slate-300 text-sm pt-[5vh] border-t min-h-[50vh] border-white/10 mt-[10vh]">
       <div className="w-[80vw] mx-auto px-[3vw] md:px-[3vw] ">
         {/* Top grid */}
         <div className="flex justify-between border-b border-white/10 h-[35vh]">
