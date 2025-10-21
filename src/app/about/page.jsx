@@ -5,7 +5,7 @@ export default function AboutPage() {
     <main>
       <ScrollMaskSection
         textLines={[
-          { value: "This is", className: "text-[8vw]" },
+          { value: "Welcome to", className: "text-[10vw]" },
           { value: "SLIC MEDIA", className: "text-[12vw]" },
         ]}
       />
