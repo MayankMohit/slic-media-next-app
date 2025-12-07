@@ -15,9 +15,6 @@ export default function WorkSection() {
   const paraRef = useRef(null);
   const statRefs = useRef({});
   const resultsRef = useRef();
-  const whatRef = useRef(null);
-  const wedoRef = useRef(null);
-  const slicRef = useRef(null);
 
   const cardBaseClasses =
     "rounded-2xl p-6 md:px-6 md:pt-4 md:pb-6 flex flex-col justify-between border border-zinc-900 hover:shadow-[0px_0px_10px_rgba(192,192,192,0.3)] transition-shadow";
@@ -37,9 +34,6 @@ export default function WorkSection() {
     const c = rightC.current;
     const para = paraRef.current;
     const res = resultsRef.current;
-    const what = whatRef.current;
-    const wedo = wedoRef.current;
-    const slic = slicRef.current;
     if (!root || !a || !b || !c || !para) return;
 
     const animateRegion = para.querySelector(".color-animate");
@@ -65,9 +59,8 @@ export default function WorkSection() {
     gsap.set(a, { x: "-60vw", opacity: 0, y: -vh(25), scale: scaleFactor });
     gsap.set(b, { x: "-60vw", opacity: 0, y: vh(25), scale: scaleFactor });
     gsap.set(c, { x: "60vw", opacity: 0, y: vh(0), scale: scaleFactor });
-    gsap.set(para, { x: 0, opacity: 0, y: -vh(55) });
-    gsap.set(res, { y: -vh(60), opacity: 0 });
-    gsap.set(slic, { x: "60vw", opacity: 0, position: "absolute" });
+    gsap.set(para, { x: -vw(21), opacity: 0, y: -vh(12) });
+    gsap.set(res, { y: vh(150) });
 
     // timeline controlled by scroll (pin the section while animating)
     const tl = gsap.timeline({
@@ -75,7 +68,7 @@ export default function WorkSection() {
       scrollTrigger: {
         trigger: root,
         start: "top+=30% 100%", // when animation starts
-        end: () => `+=${window.innerHeight * 3}`, // length of scroll drive
+        end: () => `+=${window.innerHeight * 5}`, // length of scroll drive
         scrub: 2, // smooth scrub
       },
     });
@@ -83,7 +76,7 @@ export default function WorkSection() {
     ScrollTrigger.create({
       trigger: root,
       start: () => `top 10%`, // pin AFTER 50vh scroll
-      end: () => `+=${window.innerHeight * 3}`,
+      end: () => `+=${window.innerHeight * 5}`,
       pin: true,
       anticipatePin: 0,
     });
@@ -101,70 +94,40 @@ export default function WorkSection() {
         y: 0,
         duration: 10,
         ease: "power3.inOut",
-        stagger: 0,
+        stagger: 0, // small cascade if you want a visual order; remove for simultaneous
       },
       "+=0"
     );
 
-    // kill the extra headline layers
-    tl.to([b, c], { opacity: 0, duration: 0.3 });
-
-    // ONLY animate the main headline now
-    tl.to(what, {
-      x: "-200%",
-      opacity: 0,
-      duration: 8,
-      ease: "power3.inOut",
-    });
-
+    // 3) group shrink / finalize position (keeps small gap between them)
     tl.to(
-      wedoRef.current,
+      [a, b, c],
       {
-        x: "-165%",
-        duration: 8,
-        ease: "power3.inOut",
-      },
-      "<"
-    );
-    // slide in the new text
-    tl.fromTo(
-      slic,
-      { x: "100%", opacity: 0 },
-      { x: "-70%", opacity: 1, duration: 7, ease: "power3.inOut" },
-      "<"
-    );
-
-    // 3) shrink and snap to final position
-    tl.to(
-      a,{
         color: "#0697a7",
-        x: 0,
-        y: -vh(37),
-        scale: scaleFactor / 8,
+        x: -vw(21),
+        scale: scaleFactor/8,
+        y: -vw(18),
         duration: 10,
+        stagger: 0,
         ease: "power3.out",
       },
-      "-=4"
+      "+=0.1"
     );
 
     // 4) paragraph reveal with upward motion & subtle letter stagger (via text mask-ish)
     tl.to(
       para,
       {
-        x: 0,
-        y: -vh(65),
+        x: -vw(21),
+        y: -vw(30), // slightly lower than -290 of headlines
         opacity: 1,
         duration: 10,
         ease: "power3.out",
       },
-      "-=5"
+      "-=5" // overlap timing
     );
 
-    tl.to(
-      res,
-      { y: -vh(58), opacity: 1, duration: 5, ease: "power2.out" },
-      "-=10"
-    );
+    tl.to(res, { y: vh(10), duration: 15, ease: "power2.out" }, "+=0");
 
     if (animateRegion) {
       const letterEls = animateRegion.querySelectorAll(".letter");
@@ -213,42 +176,43 @@ export default function WorkSection() {
       aria-label="what-i-do-section"
       className="relative w-full text-white overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-6 py-28 relative flex flex-col items-center">
+      <div className="max-w-6xl mx-auto px-6 md:px-0 py-28 md:py-38 relative flex flex-col items-center">
         {/* Headline animation box */}
-        <div className="relative w-full h-[60vh] flex items-center justify-center">
+        <div className="relative w-full h-[100vh] md:h-[40vh] lg:h-[44vh] flex items-center justify-center">
           <h1
             ref={leftA}
-            className="absolute text-[clamp(36px,8vw,100px)] font-extrabold leading-[0.9] tracking-tight select-none whitespace-nowrap"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
+                   text-[clamp(36px,8vw,100px)] font-extrabold leading-[0.9] tracking-tight 
+                   whitespace-nowrap pointer-events-none select-none"
           >
-            <span ref={whatRef} className="inline-block">
-              What&nbsp;
-            </span>
-            <span ref={wedoRef} className="inline-block">
-              We Do
-            </span>
-            <span ref={slicRef} style={{ display: "inline-block" }}>
-              It The Slic Way
-            </span>
+            What We Do
           </h1>
 
           <h1
             ref={leftB}
-            className="absolute text-[clamp(36px,8vw,100px)] font-extrabold leading-[0.9] tracking-tight select-none whitespace-nowrap"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
+                   text-[clamp(36px,8vw,100px)] font-extrabold leading-[0.9] tracking-tight 
+                   whitespace-nowrap pointer-events-none select-none"
           >
             What We Do
           </h1>
+
           <h1
             ref={rightC}
-            className="absolute text-[clamp(36px,8vw,100px)] font-extrabold leading-[0.9] tracking-tight select-none whitespace-nowrap"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
+                   text-[clamp(36px,8vw,100px)] font-extrabold leading-[0.9] tracking-tight 
+                   whitespace-nowrap pointer-events-none select-none"
           >
             What We Do
           </h1>
         </div>
 
-        {/* Paragraph */}
+        {/* Paragraph directly below, animates with GSAP */}
         <p
           ref={paraRef}
-          className="mt-[1vw] max-w-[65vw] text-center text-[3vw] font-bold leading-[3.5vw] text-zinc-400 opacity-0"
+          className="mt-10 w-full max-w-[52vw] text-center
+             text-xl md:text-[3.6vw]
+             font-black leading-tight text-zinc-400 opacity-0 mx-auto px-6"
         >
           <span className="color-animate">
             We craft high-performance video & ad content, building scroll-driven
@@ -256,36 +220,39 @@ export default function WorkSection() {
             concept, scripting and production to data-driven optimization.
           </span>
         </p>
+      </div>
 
-        {/* Results card (CENTERED now) */}
-        <div ref={resultsRef} className="mt-0 max-w-[60vw]  w-full">
-          <div
-            className={`bg-gradient-to-tr from-zinc-950/25 via-zinc-900/25 to-zinc-950/25 backdrop-blur-lg min-h-[25vh] ${cardBaseClasses}`}
-          >
-            <div>
-              <div className="text-[#0697a7] text-[2vw] text-center font-bold">
-                Results
-              </div>
+      {/* Results card pinned right */}
+      <div className="absolute top-0 right-[5vw] w-[35vw] h-[60vh] bg-transparent">
+        <div
+          ref={resultsRef}
+          className={`bg-gradient-to-tr from-zinc-950/25 via-zinc-900/25 to-zinc-950/25 backdrop-blur-lg ${cardBaseClasses}`}
+        >
+          <div>
+            <div className="text-[#0697a7] text-[2.7vw] text-center font-bold">
+              Results
             </div>
-
-            <div className="flex flex-row items-center justify-around gap-4 mt-[1vw] h-full">
-              {stats.map((s) => (
+            <h4 className="text-zinc-100 font-medium text-center text-[1.1vw]">
+              Proven outcomes
+            </h4>
+          </div>
+          <div className="flex flex-col justify-between items-stretch gap-[1vw] w-full mt-[1.5vw]">
+            {stats.map((s) => (
+              <div
+                key={s.id}
+                className="flex-1 text-center bg-white/10 rounded-lg pt-[2.1vh] pb-[1.4vh] flex flex-col justify-center items-center"
+              >
                 <div
-                  key={s.id}
-                  className="bg-white/10 rounded-lg py-4 flex flex-col justify-center items-center w-full min-h-[15vh]"
+                  ref={(el) => (statRefs.current[s.id] = el)}
+                  className="text-[2.6vw] font-bold text-white"
                 >
-                  <div
-                    ref={(el) => (statRefs.current[s.id] = el)}
-                    className="text-[2vw] font-bold text-white"
-                  >
-                    0
-                  </div>
-                  <div className="text-[1vw] font-medium text-[#0697a7] mt-1">
-                    {s.label}
-                  </div>
+                  0
                 </div>
-              ))}
-            </div>
+                <div className="text-[1vw] font-medium text-[#0697a7] mt-[0.2vh]">
+                  {s.label}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
